@@ -5,10 +5,12 @@ CREATE TABLE IF NOT EXISTS users (
     api_key TEXT UNIQUE
 );
 
+
 CREATE TABLE IF NOT EXISTS channels (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     name TEXT NOT NULL UNIQUE
 );
+
 
 CREATE TABLE IF NOT EXISTS messages (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -22,6 +24,7 @@ CREATE TABLE IF NOT EXISTS messages (
     FOREIGN KEY (replies_to) REFERENCES messages(id)
 );
 
+
 CREATE TABLE IF NOT EXISTS reactions (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     message_id INTEGER NOT NULL,
@@ -30,6 +33,7 @@ CREATE TABLE IF NOT EXISTS reactions (
     FOREIGN KEY (message_id) REFERENCES messages(id),
     FOREIGN KEY (user_id) REFERENCES users(id)
 );
+
 
 CREATE TABLE IF NOT EXISTS user_channel_read_status (
     user_id INTEGER NOT NULL,
@@ -41,3 +45,4 @@ CREATE TABLE IF NOT EXISTS user_channel_read_status (
     FOREIGN KEY (last_read_message_id) REFERENCES messages(id),
     PRIMARY KEY (user_id, channel_id)
 );
+
