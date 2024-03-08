@@ -1,100 +1,99 @@
 body {
-    background-color: #121212; /* Dark background for a futuristic vibe */
+    background-color: #121212; /* Dark background for a modern, sleek look */
     margin: 0 auto;
-    font-family: 'Roboto', sans-serif; /* Using Roboto for a more modern look */
-    color: #00FF00; /* Neon green text for a futuristic look */
+    font-family: 'Roboto', sans-serif; /* Modern, readable font */
+    color: #79A7D3; /* Soft blue for text, easier on the eyes than neon green */
     line-height: 1.5;
-  }
-  
-  /* Basic layout and typography */
-  .formart_whl {
+}
+
+/* Basic layout and typography adjustments */
+.formart_whl {
     display: grid;
     grid-template-columns: 250px auto; /* Channel list on the left, chat on the right */
     grid-template-rows: auto 1fr auto;
     gap: 10px;
     min-height: 100vh;
     padding: 10px;
-    color: #00FF00; /* Neon green */
-    background-color: #121212; /* Dark background */
-  }
-  
-  .header {
+    color: #79A7D3; /* Soft blue */
+    background-color: #121212; /* Dark background for contrast */
+}
+
+.header {
     grid-column: 1 / -1; /* Header spans entire width */
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 20px;
-    border-bottom: 2px solid #00FF00; /* Neon green border */
-  }
-  
-  .channels {
+    border-bottom: 2px solid #79A7D3; /* Soft blue border for a subtle highlight */
+}
+
+.channels {
     overflow-y: auto;
-    border-right: 2px solid #00FF00; /* Neon green border */
-  }
-  
-  .main {
+    border-right: 2px solid #79A7D3; /* Soft blue border for separation */
+}
+
+.main {
     overflow-y: auto;
     padding: 20px;
-  }
-  
-  /* Highlighting active channel */
-  .channel-active {
-    background-color: #00FF00; /* Neon green background */
-    color: #121212; /* Dark text */
-  }
-  
-  /* Buttons and interactive elements */
-  button {
+}
+
+/* Highlighting the active channel more subtly */
+.channel-active {
+    background-color: #79A7D3; /* Soft blue background */
+    color: #121212; /* Dark text for contrast */
+    font-weight: bold; /* Make the active channel stand out */
+}
+
+/* Buttons and interactive elements */
+button {
     background-color: transparent;
-    color: #00FF00;
-    border: 2px solid #00FF00;
+    color: #79A7D3; /* Soft blue */
+    border: 2px solid #79A7D3; /* Border matches text for consistency */
     padding: 8px 16px;
-    transition: background-color 0.3s, color 0.3s;
-  }
-  
-  button:hover {
-    background-color: #00FF00;
-    color: #121212;
-  }
-  
-  /* Responsive design adjustments */
-  @media (max-width: 768px) {
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition for hover effects */
+}
+
+button:hover {
+    background-color: #79A7D3; /* Soft blue background on hover */
+    color: #121212; /* Dark text for readability */
+}
+
+/* Responsive design adjustments */
+@media (max-width: 768px) {
     .formart_whl {
-      grid-template-columns: 1fr; /* Stack elements vertically on narrow screens */
-      grid-template-rows: auto 1fr;
+        grid-template-columns: 1fr; /* Stack elements vertically on narrow screens */
+        grid-template-rows: auto 1fr;
     }
-  
+
     .channels, .main {
-      grid-column: 1;
+        grid-column: 1;
     }
-  
+
     .header {
-      flex-direction: column;
-      text-align: center;
+        flex-direction: column;
+        text-align: center;
     }
-  }
-  
-  /* Additional responsive considerations for reply threads and back navigation */
-  @media (min-width: 768px) {
+}
+
+@media (min-width: 768px) {
     .reply-thread {
-      display: grid;
-      grid-template-columns: auto 300px; /* Main messages on the left, replies on the right */
-      gap: 10px;
+        display: grid;
+        grid-template-columns: auto 300px; /* Main messages on the left, replies on the right */
+        gap: 10px;
     }
-    
+
     .back-to-channel {
-      display: none; /* Hide back button on wide screens, as the channel list is always visible */
+        display: none; /* Hide back button on wide screens, as the channel list is always visible */
     }
-  }
-  
-  @media (max-width: 768px) {
+}
+
+@media (max-width: 768px) {
     .reply-thread {
-      display: block; /* Stack messages and replies vertically on narrow screens */
+        display: block; /* Stack messages and replies vertically on narrow screens */
     }
-  
+
     .back-to-channel {
-      display: block; /* Show back button on narrow screens for navigation */
-      margin-bottom: 10px;
+        display: block; /* Show back button on narrow screens for navigation */
+        margin-bottom: 10px;
     }
-  }
-  
+}
