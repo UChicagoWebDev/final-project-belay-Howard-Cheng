@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BELAY CHAT</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rowdies:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+  <link rel="stylesheet" type="text/css" href="/static/style.css"></link>
+</head>
+
+<body>
+  <div class="formart_whl">
+
+    <!-- Header Section -->
+    <div class="header">
+      <div class="tit">
+        <h1>Belay</h1>
+      </div>  
+      <div>
+        <button class="loggedOut" onclick="showLoginForm()"> Login</button>
+        <button class="loggedIn" onclick="navigateTo(PROFILE)"> Profile: <span class="username"></span> </button>
+        <button class="signup" onclick="showSignupForm()">Signup </button> 
+      </div>
+    </div>
+
+    <!-- Create Channel Button -->
+    <button class="createRoomButton" onclick="showCreateChannelForm()">Create a channel</button>
+  
+    <!-- Channels List -->
+    <div class="channels">
+      <h3 id="ch_title">Channels</h3>
+      <hr>
+      <div class="channelList"></div>
+    </div>
+
+    <!-- Splash/Main Chat Area -->
+    <div class="splash main hide">
+      <h3>Select a Channel to Chat</h3>
+    </div>
+
+    <!-- Profile Management -->
+    <div class="profile main hide">
+      <div class="alignedForm">
+        <div class="form-group">
+          <label for="username">Username: </label>
+          <input id="profile-username" name="username" value="">
+        </div>
+        <div class="form-group">
+          <label for="password">Password: </label>
+          <input type="password" id="profile-password" name="password" value="">
+          <error class="hide">Wrong Passwords</error>
+        </div>
+        <div class="form-group">
+          <label for="repeatPassword">Repeat: </label>
+          <input type="password" id="profile-repeatPassword" name="repeatPassword" value="">
+        </div>
+        <div class="button-group">
+          <button onclick="updateProfile()">Update</button>
+          <button onclick="logout()">Log out</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Login Form -->
+    <div class="login main hide">
+      <div class="auth container">
+        <h3>Enter your username and password to log in:</h3>
+        <div class="alignedForm login">
+          <div class="form-group">
+            <label for="login-username">Username</label>
+            <input id="login-username" name="username"></input>
+            <label for="login-password">Password</label>
+            <input type="password" id="login-password" name="password">
+          </div>
+          <div class="button-group">
+            <button id="loginbutton" onclick="login()">Login </button>
+          </div>
+        </div>
+        <div class="failed">
+          <div class="message hide" id="loginfailmessage">
+            Oops, that username and password don't match any of our users!
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Signup Form -->
+    <div class="signup main hide">
+      <div class="auth container">
+        <h3>Signup for a new account:</h3>
+        <div class="alignedForm">
+          <div class="form-group">
+            <label for="signup-username">Username</label>
+            <input id="signup-username" name="username"></input>
+            <label for="signup-password">Password</label>
+            <input type="password" id="signup-password" name="password">
+          </div>
+          <div class="button-group">
+            <button onclick="signup()">Signup</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Conversations/Channel Chat -->
+    <div classconversations main">
+        <div class="channel-header">
+            <h3 id="conversationName"></h3>
+            <button class="edit-channel-name hide" onclick="showEditChannelNameForm()">Edit Name</button>
+        </div>
+        
+        <div class="channel-actions">
+            <button class="delete-channel" onclick="deleteChannel()">Delete Channel</button>
+        </div>
+
+        <div class="message-list"></div>
+
+        <div class="message-input">
+            <textarea id="message-input" placeholder="Type your message here..."></textarea>
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+
+    <!-- Create Channel Form -->
+    <div class="create-channel-form hide">
+        <input type="text" id="new-channel-name" placeholder="New channel name">
+        <button onclick="createChannel()">Create</button>
+    </div>
+
+    <!-- Edit Channel Name Form -->
+    <div class="edit-channel-name-form hide">
+        <input type="text" id="edit-channel-name-input" placeholder="Edit channel name">
+        <button onclick="editChannelName()">Save</button>
+    </div>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>
