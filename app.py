@@ -299,15 +299,6 @@ def some_specific_route():
         pass
 
 
-@app.route('/', defaults={'path': ''})
-@app.route('/<path:path>')
-def serve_spa(path):
-    if path != "" and os.path.exists("static/" + path):
-        return send_from_directory('static', path)
-    else:
-        return send_from_directory('static', 'index.html')
-
-
 @app.errorhandler(404)
 def not_found(error):
     return jsonify({'error': 'Not found'}), 404
